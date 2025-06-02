@@ -1,0 +1,158 @@
+@import "macchiato.css";
+
+* {
+  font-family: "JetBrains Mono", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 18px;
+}
+
+window#waybar {
+  background-color: transparent;
+  border-radius: 13px;
+  transition-duration: 0.5s;
+
+}
+
+button {
+  /* Use box-shadow instead of border so the text isn't offset */
+  box-shadow: inset 0 -3px transparent;
+  /* Avoid rounded borders under each button name */
+  border: none;
+  border-radius: 1;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+  background: #ffffff;
+  box-shadow: inset 0 -3px #ffffff;
+}
+
+/* you can set a style on hover for any module like this */
+#pulseaudio:hover {
+  background-color: #FFFFFF;
+}
+
+#workspaces button {
+  padding: 0 5px;
+  background-color: transparent;
+  color: #000000;
+}
+
+#workspaces button:hover {
+  background: #FFFFFF
+}
+
+#workspaces button.focused {
+  background-color: #000000;
+  color: @base;
+  box-shadow: inset 0 -3px #ffffff;
+}
+
+#workspaces button.urgent {
+  background-color: #FFFFFF;
+}
+
+#mode {
+  background-color: #000000;
+  box-shadow: inset 0 -3px #ffffff;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#temperature,
+#network,
+#pulseaudio {
+  padding: 4px 10px;
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  margin-left: 5px;
+  color: #000000;
+  margin-right: 10px;
+}
+
+#pulseaudio {
+  color: #000000;
+}
+
+#network {
+  color: @yellow;
+}
+
+#temperature {
+  color: #FFFFFF;
+}
+
+#battery {
+  color: @green;
+}
+
+#clock {
+  color: #000000;
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  padding: 4px 10px;
+  margin-left: 5px;
+  margin-right: 10px;
+}
+
+#cpu {
+  color: @peach;
+}
+
+#tray image{
+  min-width:32px;
+  min-height:32px;
+}
+
+#memory {
+  color: @green;
+}
+
+#window {
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  padding: 4px 10px;
+  margin-left: 5px;
+  margin-right: 10px;
+  color: #000000;
+}
+
+#workspaces{
+  background-color: #FFFFFF;
+  color: #000000;
+  border-radius: 12px;
+  padding: 4px 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#battery.charging,
+#battery.plugged {
+  color: @sapphire;
+}
+
+@keyframes blink {
+  to {
+    color: #000000;
+  }
+}
+
+/* Using steps() instead of linear as a timing function to limit cpu usage */
+#battery.critical:not(.charging) {
+  background-color: #f53c3c;
+  color: #ffffff;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: steps(12);
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+label:focus {
+  background-color: #000000;
+}
+
+#pulseaudio.muted {
+  color: @text;
+}

@@ -1,0 +1,74 @@
+{
+    "modules-left": [
+        "hyprland/workspaces",
+	"hyprland/window"
+    ],
+    "modules-center": [
+        "clock",
+    ],
+    "modules-right": [
+        "pulseaudio",
+ 	"tray",
+    ],
+   "custom/gpu": {
+    "format": "GPU: {}°C{}",
+    "exec": "echo $(cat /sys/class/drm/card1/device/gpu_busy_percent)% $(($(cat /sys/class/drm/card1/device/hwmon/hwmon2/temp1_input) / 1000))",
+    "interval": 2,
+    "tooltip": false
+    },
+    // Модуль CPU
+    "cpu": {
+        "format": "CPU: {usage}%",
+	"tooltip": false
+    },
+    //Модуль температуры
+    "temperature": {
+        "critical-threshold": 80,
+	"format-critical": "{temperatureC}°C",
+	"format": "/{temperatureC}°C"
+    },
+    // Модуль памяти
+    "memory": {
+        "format": "RAM: {}%",
+        "interval": 5
+    },
+    // Модуль аудио (PulseAudio)
+    "pulseaudio": {
+        "format": "{volume}% {icon}",
+        "format-icons": ["", "", ""],
+        "on-click": "pavucontrol"
+    },
+
+    // Модуль часов
+    "clock": {
+        "format": "{:%H:%M}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%d.%m.%Y}"
+    },
+
+    // Модуль трея (иконки в системном трее)
+    "tray": {
+        "spacing": 10,
+    },
+
+    // Модуль окна Hyprland
+    "hyprland/window": {
+        "max-length": 35,
+        "separate-outputs": true
+    },
+
+    // Модуль рабочих пространств Hyprland
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "on-click": "activate",
+        "format-icons": {
+            "default": "○",
+            "active": "●"
+        },
+        "sort-by-number": true,
+        "persistent-workspaces": {
+            "*": 10,  // 10 рабочих пространств по умолчанию
+            "HDMI-A-1": 5  // Но только 3 на мониторе HDMI-A-1
+        }
+    }
+}
