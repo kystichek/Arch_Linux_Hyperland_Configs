@@ -36,6 +36,14 @@ button:hover {
   background-color: transparent;
   color: #000000;
 }
+#network {
+  padding: 4px 10px;
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  margin-left: 5px;
+  color: #000000;
+  margin-right: 10px;
+}
 
 #workspaces button:hover {
   background: #FFFFFF
@@ -75,9 +83,6 @@ button:hover {
   color: #000000;
 }
 
-#network {
-  color: @yellow;
-}
 
 #temperature {
   color: #FFFFFF;
@@ -109,6 +114,14 @@ button:hover {
   color: @green;
 }
 
+#language{
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  padding: 4px 10px;
+  margin-left: 5px;
+  margin-right: 10px;
+  color: #000000;
+}
 #window {
   background-color: #FFFFFF;
   border-radius: 12px;

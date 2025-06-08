@@ -1,12 +1,13 @@
 {
     "modules-left": [
         "hyprland/workspaces",
-	"hyprland/window"
+	"network",
     ],
     "modules-center": [
         "clock",
     ],
     "modules-right": [
+	"hyprland/language",
         "pulseaudio",
  	"tray",
     ],
@@ -28,14 +29,21 @@
     "tray": {
         "spacing": 10,
     },
-
+    
     // Window Module
     "hyprland/window": {
         "max-length": 35,
         "separate-outputs": true
     },
-
-    // Workspaces module
+     "network": {
+      "format-wifi": "  {signalStrength}%",
+      "format-ethernet": "{cidr} ",
+      "tooltip-format": "{ifname} via {gwaddr} ",
+      "format-linked": "{ifname} (No IP) ",
+      "format-disconnected": " ⚠ ",
+      "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+       // Workspaces module
     "hyprland/workspaces": {
         "format": "{icon}",
         "on-click": "activate",
